@@ -1,6 +1,6 @@
 # README
 
-Business logic is return in MfInvestmentService.
+Business logic is written in MfInvestmentService.
 
 * Ruby and Rails version
   ruby 2.7.2
