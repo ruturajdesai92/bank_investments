@@ -1,0 +1,37 @@
+<div class='row py-3 px-3'>
+    <p>To reset database records, run 'rake db:seed' in console</p>
+    <div class='col-12 col-sm-8'>
+        <h3 class=''>Bank Accounts</h3>
+        <table id='employee-table' class="table table-hover">
+        <thead  class="thead-light">
+            <tr>
+            <th>Name</th>
+            <th>Balance</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @accounts.each do |account| %>
+            <tr>
+                <td><%= account.name %></td>
+                <td><%= account.balance %></td>
+            </tr>
+            <% end %>
+        </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+<%= form_with url: "/accounts/invest", method: :post do |form| %>
+    <%= form.label :amount, "MF Investment:" %>
+    <%= form.text_field :amount %>
+    <%= form.submit "Invest" %>
+<% end %>
+<div class='investment_logs'>
+    <% if @logs.present? %>
+        <% @logs.each do |log| %>
+            <p><%= log %></p>
+        <% end %>
+    <% end %>
+</div>
+
